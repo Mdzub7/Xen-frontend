@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --primary-bg: #1A1B26;
+  --secondary-bg: #24283B;
+  --accent: #7AA2F7;
+  --success: #9ECE6A;
+  --warning: #E0AF68;
+  --error: #F7768E;
+  --text: #A9B1D6;
+  --highlight: #BB9AF7;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(169, 177, 214, 0.2);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(169, 177, 214, 0.3);
+}
+
+/* Split view styles */
+.split {
+  display: flex;
+  flex-direction: row;
+}
+
+.gutter {
+  background-color: var(--secondary-bg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transition: background-color 0.2s;
+}
+
+.gutter:hover {
+  background-color: var(--accent);
+}
+
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+  width: 4px;
+}
+
+.gutter.gutter-vertical {
+  cursor: row-resize;
+  height: 4px;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(36, 40, 59, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(122, 162, 247, 0.1);
+}
+
+/* Animations */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Monaco Editor customization */
+.monaco-editor .minimap {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.monaco-editor .minimap:hover {
+  opacity: 0.8;
+}
+
+/* Tab animations */
+.tab-enter {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.tab-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.tab-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tab-exit-active {
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+/* Command palette */
+.command-palette {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 90vw;
+  z-index: 1000;
+}
+
+/* Micro-interactions */
+.btn {
+  @apply rounded px-2 py-1 transition-all duration-200;
+}
+
+.btn:hover {
+  @apply bg-opacity-80 transform scale-[1.02];
+}
+
+.btn:active {
+  @apply transform scale-[0.98];
+}
+
+/* AI Chat interface */
+.ai-message {
+  @apply p-3 rounded-lg mb-3 glass;
+}
+
+.user-message {
+  @apply p-3 rounded-lg mb-3 bg-opacity-50 bg-accent;
+}
+
+/* Status bar items */
+.status-item {
+  @apply px-2 py-0.5 flex items-center space-x-1 border-r border-opacity-20 hover:bg-opacity-10 hover:bg-white transition-colors;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  @apply flex items-center text-sm space-x-1 px-2 py-1;
+}
+
+.breadcrumb-item {
+  @apply hover:text-accent transition-colors cursor-pointer;
+}
+
+/* Loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
