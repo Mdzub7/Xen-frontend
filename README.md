@@ -1,5 +1,7 @@
 # VS Code-like Editor
 
+![VS Code-like Editor Demo](./assets/img.png)
+
 A modern, web-based code editor built with React, TypeScript, and Vite that mimics Visual Studio Code's interface and functionality.
 
 ## 🚀 Features
